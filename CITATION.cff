@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use MAGNA-FLOW in your research, please cite this work as:"
+authors:
+
+· family-names: "Baladi"
+  given-names: "Samir"
+  orcid: "https://orcid.org/0009-0003-8903-0029"
+  title: "MAGNA-FLOW: Neural Magnetohydrodynamic Dissipation Control for High-Conductivity Turbulent Plasma Systems"
+  version: 1.0.0
+  doi: 10.5281/zenodo.19893462
+  date-released: 2026-04
+  url: "https://github.com/gitdeeper11/MAGNA-FLOW"
+  repository-code: "https://github.com/gitdeeper11/MAGNA-FLOW"
+  license: "MIT"
+  keywords:
+· magnetohydrodynamics
+· neural-operators
+· fourier-neural-operator
+· pinn
+· plasma-control
+· elm-suppression
+· hall-thruster
+· mhd-turbulence
+· entropy-production
+· magnetic-helicity
+· maxwell-stress-tensor
+  abstract: "MAGNA-FLOW introduces a Physics-Informed AI framework for real-time prediction and active suppression of magnetohydrodynamic instabilities and irreversible dissipation in high-conductivity turbulent fluid systems, achieving 94.2% mean MHD efficiency across four canonical regimes."
+  EOF
+
+إنشاء Dockerfile
+
+cat > Dockerfile << 'EOF'
+
+MAGNA-FLOW (E-LAB-09) Dockerfile
+
+FROM python:3.11-slim
+
+LABEL maintainer="Samir Baladi <gitdeeper@gmail.com>"
+LABEL description="MAGNA-FLOW: Neural MHD Dissipation Control"
+LABEL version="1.0.0"
+LABEL doi="10.5281/zenodo.19893462"
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY magna_flow/ ./magna_flow/
+COPY bin/ ./bin/
+COPY configs/ ./configs/
+
+RUN pip install -e .
+
+ENTRYPOINT ["python", "bin/run_control.py"]
+CMD ["--help"]

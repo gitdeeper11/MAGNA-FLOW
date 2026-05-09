@@ -1,0 +1,6 @@
+# MAGNA-FLOW (E-LAB-09) Core Requirements - Pure Python, no numpy
+
+# Pure Python implementation - no external dependencies
+# All mathematical operations use built-in math and cmath
+
+# Optional for development only (see requirements-dev.txt)

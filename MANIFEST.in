@@ -1,0 +1,41 @@
+
+MAGNA-FLOW (E-LAB-09) Manifest File
+
+include README.md
+include LICENSE
+include AUTHORS.md
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include SECURITY.md
+include CITATION.cff
+
+include pyproject.toml
+include requirements.txt
+include requirements-dev.txt
+
+include bin/run_control.py
+include bin/benchmark.py
+
+recursive-include magna_flow *.py
+recursive-include tests *.py
+recursive-include examples *.py
+recursive-include scripts *.sh *.py
+recursive-include configs *.yaml *.yml
+
+recursive-include Netlify *.html *.css *.js
+
+exclude .gitignore
+exclude .dockerignore
+exclude .gitlab-ci.yml
+exclude .pre-commit-config.yaml
+exclude .readthedocs.yaml
+exclude Dockerfile
+exclude Makefile
+exclude COMPLETION.md
+
+prune pycache
+prune *.pyc
+prune .pytest_cache
+prune .coverage
+prune htmlcov

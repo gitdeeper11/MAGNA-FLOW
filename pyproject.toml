@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magna-flow-engine"
+version = "1.0.0"
+description = "MAGNA-FLOW: Neural Magnetohydrodynamic Dissipation Control for High-Conductivity Turbulent Plasma Systems"
+authors = [
+{name = "Samir Baladi", email = "gitdeeper@gmail.com"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+"Development Status :: 4 - Beta",
+"Intended Audience :: Science/Research",
+"License :: OSI Approved :: MIT License",
+"Programming Language :: Python :: 3",
+"Programming Language :: Python :: 3.11",
+"Programming Language :: Python :: 3.12",
+"Topic :: Scientific/Engineering :: Physics",
+"Topic :: Scientific/Engineering :: Artificial Intelligence",
+"Topic :: Scientific/Engineering :: Plasma Physics",
+]
+
+[project.urls]
+"Homepage" = "https://magna-flow.netlify.app"
+"Dashboard" = "https://magna-flow-v1.netlify.app/dashboard"
+"Documentation" = "https://magna-flow-v1.netlify.app/docs"
+"GitHub" = "https://github.com/gitdeeper11/MAGNA-FLOW"
+"GitLab" = "https://gitlab.com/gitdeeper11/MAGNA-FLOW"
+"DOI" = "https://doi.org/10.5281/zenodo.19893462"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["magna_flow*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=magna_flow --cov-report=html"

@@ -1,0 +1,25 @@
+
+MAGNA-FLOW (E-LAB-09) Docker ignore
+
+pycache/
+*.pyc
+.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+.git/
+.gitignore
+.gitlab-ci.yml
+.github/
+docs/_build/
+.venv/
+venv/
+.env
+.env.
+!.env.example
+results/
+data/
+*.log
+.DS_Store
+notebooks/
+tests/
